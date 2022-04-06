@@ -1,9 +1,11 @@
-
+import flask
 import requests
 import telebot
-
+import oc
+token = '5293190304:AAFzrDyUab2W1DyyEtD0FRiQu-SmAdfxvDE'
 city=''
-bot = telebot.TeleBot('5293190304:AAFzrDyUab2W1DyyEtD0FRiQu-SmAdfxvDE')
+bot = telebot.TeleBot(token)
+server = flask.Flask(__name__)
 @bot.message_handler(commands=['start', 'help'])
 def get_weather(message):
     bot.send_message(message.chat.id,'Привет, я бот прогноза погоды! \nНапиши любой город.')
@@ -41,6 +43,20 @@ def rekuest(message):
     else:
         bot.send_message(message.chat.id,'Захвати с собой зонт')
 
+
+
+@server.route('/'+token,methods=['POST'])
+def getMessage():
+    bot.process_new_updates([types.Update.de_json(flask.request.stream.read().decode('utf-8'))])
+    return'!',200
+
+@server.route('/',methods=['GET'])
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://telbt.herokuapp.com/'+token)
+    return'!',200
+if __name__=='__main__':
+    server.run(host='0.0.0.0',port=int(os.environ.get('PORT',5000)))
 
 
 
