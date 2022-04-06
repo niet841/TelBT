@@ -1,4 +1,4 @@
-from cgitb import text
+
 import requests
 import telebot
 
@@ -46,4 +46,4 @@ def rekuest(message):
 
 
 
-bot.infinity_polling()
+
