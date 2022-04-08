@@ -25,7 +25,7 @@ def rekuest(message):
     icon_data = data['weather'][0]['icon']
      
     
-    foto= open('weather_icons/'+icon_data+'.png','rb')
+    foto= open('weathers_icons/'+icon_data+'.png','rb')
     bot.send_photo(message.chat.id,foto)
        
 
@@ -37,12 +37,18 @@ def rekuest(message):
         bot.send_message(message.chat.id,'Одевайся тепло')
 
 
-    if temperature > 0:
+    if temperature > 0 and temperature < 15:
 
         bot.send_message(message.chat.id,'Сегодня неплохая погода')
-    if temperature > 15:
+    
+    if temperature > 15 and temperature < 30:
 
         bot.send_message(message.chat.id,'Незабудь очки и кепку')
+    
+    if temperature > 30 and temperature < 50:
+
+        bot.send_message(message.chat.id,'Сегодня будет пекло готовтесь! ')    
+        
 
     else:
         bot.send_message(message.chat.id,'Захвати с собой зонт')
