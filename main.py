@@ -37,15 +37,15 @@ def rekuest(message):
         bot.send_message(message.chat.id,'Одевайся тепло')
 
 
-    if temperature > 0 and temperature < 15:
+    elif temperature > 0 and temperature < 15:
 
         bot.send_message(message.chat.id,'Сегодня неплохая погода')
     
-    if temperature > 15 and temperature < 30:
+    elif temperature > 15 and temperature < 30:
 
         bot.send_message(message.chat.id,'Незабудь очки и кепку')
     
-    if temperature > 30 and temperature < 50:
+    elif temperature > 30 and temperature < 50:
 
         bot.send_message(message.chat.id,'Сегодня будет пекло готовтесь! ')    
         
