@@ -50,8 +50,8 @@ def rekuest(message):
         bot.send_message(message.chat.id,'Сегодня будет пекло готовтесь! ')    
         
 
-    else:
-        bot.send_message(message.chat.id,'Захвати с собой зонт')
+    #elif:
+        #bot.send_message(message.chat.id,'Захвати с собой зонт')
 
 
 
